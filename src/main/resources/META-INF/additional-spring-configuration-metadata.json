@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "url.servicio.escribanos",
+    "type": "java.lang.String",
+    "description": "URL de prueba de colegio de escribanos"
+  },
+  {
+    "name": "servicio.escribanos.method",
+    "type": "java.lang.String",
+    "description": "Endpoint destino"
+  },
+  {
+    "name": "jwt.secret",
+    "type": "java.lang.String",
+    "description": "Token de autorización"
+  }
+]}
