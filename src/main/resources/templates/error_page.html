@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/layout :: head">
+        <title>Nómina de Escribanos CECBA</title>
+    </head>
+    <body>
+        <div class="container py-4">
+            <div class="card bg-light">
+                <div class="card shadow-lg border-success">
+                    <div class="card-header bg-success text-white">
+                    <h1 class="h4 mb-0">Error [[${errorCode}]]</h1>
+                    </div>
+                    <div class="card-body">
+                    <p class="text-muted">[[${errorMessage}]]</p>
+                    <a href="/" class="btn btn-outline-success mt-3">
+                        <i class="bi bi-arrow-left"></i> Volver al inicio
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        <footer th:replace="layout/layout :: footer"></footer>
+        <script th:src="@{/js/form.js}"></script>
+    </body>
+</html>
