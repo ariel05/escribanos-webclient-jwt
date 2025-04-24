@@ -11,11 +11,11 @@
                         th:text="${titulo}"></h1>
                 </div>
                 <div class="card-body">
-                    <form th:action="@{/escribano}" method="get">
+                    <form th:action="@{/escribano}" method="get" id="form-cuit">
                         <label for="cuit" class="form-label col-sm-2">Búsqueda</label>
                         <div class="form-group row mt-2">
                             <div class="col-sm-4">
-                                <input type="text" name="cuit" class="form-control" placeholder="XX-XXXXXXXX-XX" required />
+                                <input type="text" id="cuit" name="cuit" class="form-control" placeholder="XX-XXXXXXXX-XX" data-bs-toggle="tooltip" data-bs-placement="top" title="">
                             </div>
                             <div class="col-sm-6">
                                 <input type="submit" value="Buscar" class="btn btn-success" />
@@ -120,5 +120,6 @@
     
 
         <footer th:replace="layout/layout :: footer"></footer>
+        <script th:src="@{/js/form.js}"></script>
     </body>
 </html>
