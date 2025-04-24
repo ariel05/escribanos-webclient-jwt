@@ -1,6 +1,7 @@
 package ar.com.example.escribanos.webclient.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,25 +12,33 @@ import ar.com.example.escribanos.webclient.service.EscribanoService;
 
 @Controller
 public class EscribanosController {
-	
+
 	@Autowired
 	private EscribanoService escribanoService;
-	
-	@GetMapping(value = {"/", "/index", "/form"})
+
+	@GetMapping(value = { "/", "/index", "/nomina" })
 	public String index(Model model) {
-		
+
 		model.addAttribute("titulo", "Nómina de Escribanos");
 		return "form";
 	}
-	
-	@GetMapping("/escribano")
+
+	@GetMapping("/nomina/buscar")
 	public String getEscribano(@RequestParam String cuit, Model model) {
-		
-		EscribanoDTO escribano = escribanoService.obtenerDatosEscribanoPorCuit(cuit);
-		
-		model.addAttribute("escribano", escribano);
+		try {
+			ResponseEntity<EscribanoDTO> escribano = escribanoService.obtenerDatosEscribanoPorCuit(cuit);
+			if(escribano.getBody() != null)
+				model.addAttribute("escribano", escribano.getBody());
+			else {
+				model.addAttribute("sinResultado", true);
+				model.addAttribute("sinResultadoMensaje", "Escribano no encontrado para el CUIT proporcionado.");
+			}
+		} catch (RuntimeException e) {
+			model.addAttribute("error", e.getMessage());
+		}
+
+		model.addAttribute("resultado", true);
 		model.addAttribute("titulo", "Nómina de Escribanos");
-		
 		return "form";
 	}
 }

@@ -19,7 +19,7 @@ public class EscribanoRestController {
 	
 	@GetMapping("/getEscribano")
 	public ResponseEntity<EscribanoDTO> getEscribano(@RequestParam String cuit) {
-		return ResponseEntity.ok(escribanoService.obtenerDatosEscribanoPorCuit(cuit));
+		return escribanoService.obtenerDatosEscribanoPorCuit(cuit);
 		
 	}
 }
