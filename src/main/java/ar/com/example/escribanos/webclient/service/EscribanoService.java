@@ -54,7 +54,12 @@ public class EscribanoService {
 	            throw new RuntimeException("Error al obtener los datos del escribano.");
 	        }
 	    } catch (Exception e) {
-	        throw new RuntimeException("Error inesperado al consultar escribano, vuelva a intentarlo más tarde.");
+	    	String msj;
+	    	if(e.getMessage().contains("Invalid token"))
+	    		msj = "El token generado es inválido o ha expirado, por favor genere uno nuevo.";
+	    	else
+	    		msj = "Error inesperado al consultar escribano, vuelva a intentarlo más tarde.";
+	        throw new RuntimeException(msj);
 	    }
 	}
 }
