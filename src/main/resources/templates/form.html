@@ -7,7 +7,7 @@
         <div class="container py-4">
             <div class="card bg-light">
                 <div class="card-header">
-                    <h1 class="text-secondary border-bottom border-success"
+                    <h1 class="text-secondary border-success"
                         th:text="${titulo}"></h1>
                 </div>
                 <div class="card-body">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="row mt-3"  th:if="${escribano != null}">
                     <div class="col-sm-2 ml-3">
-                        <img th:src="@{'/img/spring.png'}" class="img-thumbnail">
+                        <img th:src="@{'/img/' + ${imgAvatar}}" class="img-thumbnail">
                     </div>
                     <table class="col-sm-6 table table-striped table-bordered">
                         <tbody>

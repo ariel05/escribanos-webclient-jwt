@@ -27,8 +27,10 @@ public class EscribanosController {
 	public String getEscribano(@RequestParam String cuit, Model model) {
 		try {
 			ResponseEntity<EscribanoDTO> escribano = escribanoService.obtenerDatosEscribanoPorCuit(cuit);
-			if(escribano.getBody() != null)
+			if(escribano.getBody() != null) {
 				model.addAttribute("escribano", escribano.getBody());
+				model.addAttribute("imgAvatar", escribanoService.getImgMock(cuit));
+			}
 			else {
 				model.addAttribute("sinResultado", true);
 				model.addAttribute("sinResultadoMensaje", "Escribano no encontrado para el CUIT proporcionado.");

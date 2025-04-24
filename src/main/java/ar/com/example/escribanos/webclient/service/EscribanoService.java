@@ -71,4 +71,8 @@ public class EscribanoService {
 	        return false;
 	    return true;
 	}
+	
+	public String getImgMock(String cuit) {
+		return cuit.replace("-", "").concat(".jpg");
+	}
 }
