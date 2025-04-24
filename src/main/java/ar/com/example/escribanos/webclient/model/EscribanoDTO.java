@@ -1,5 +1,9 @@
 package ar.com.example.escribanos.webclient.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(content = Include.NON_EMPTY)
 public class EscribanoDTO {
 
 	private String apellido;
