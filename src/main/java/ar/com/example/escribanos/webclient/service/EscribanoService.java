@@ -19,9 +19,9 @@ public class EscribanoService {
 
 	@Autowired
 	private RestTemplate restTemplate;
-	
-	@Value("${jwt.secret}")
-	private String jwtToken;
+
+	@Autowired
+	private JwtTokenHolder tokenHolder;
 	@Value("${url.servicio.escribanos}")
 	private String url;
 	@Value("${servicio.escribanos.method}")
@@ -31,7 +31,7 @@ public class EscribanoService {
 	
 	public ResponseEntity<EscribanoDTO> obtenerDatosEscribanoPorCuit(String cuit) {
 	    HttpHeaders headers = new HttpHeaders();
-	    headers.set("Authorization", bearer.concat(jwtToken));
+	    headers.set("Authorization", bearer.concat(tokenHolder.getToken()));
 	    headers.setContentType(MediaType.APPLICATION_JSON);
 	    HttpEntity<EscribanoDTO> entity = new HttpEntity<>(headers);
 
