@@ -67,9 +67,8 @@ public class EscribanoService {
 	}
 	
 	private boolean validarCuit(String cuit) {
-	    if (cuit.matches("^\\d{11}|\\d{2}-\\d{8}-\\d{1}$"))
+	    if (!cuit.matches("^\\d{11}|\\d{2}-\\d{8}-\\d{1}$"))
 	        return false;
-	    
 	    return true;
 	}
 }
