@@ -30,6 +30,9 @@ public class EscribanoService {
 	private final String bearer = "Bearer ";
 	
 	public ResponseEntity<EscribanoDTO> obtenerDatosEscribanoPorCuit(String cuit) {
+		if(!validarCuit(cuit))
+			throw new IllegalArgumentException("Formato de CUIT inválido.");
+		
 	    HttpHeaders headers = new HttpHeaders();
 	    headers.set("Authorization", bearer.concat(tokenHolder.getToken()));
 	    headers.setContentType(MediaType.APPLICATION_JSON);
@@ -61,5 +64,12 @@ public class EscribanoService {
 	    		msj = "Error inesperado al consultar escribano, vuelva a intentarlo más tarde.";
 	        throw new RuntimeException(msj);
 	    }
+	}
+	
+	private boolean validarCuit(String cuit) {
+	    if (cuit.matches("^\\d{11}|\\d{2}-\\d{8}-\\d{1}$"))
+	        return false;
+	    
+	    return true;
 	}
 }
