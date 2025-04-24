@@ -20,6 +20,8 @@ public class EscribanoRestController {
 	@Autowired
 	private JWTService jwtService;
 	
+	private final String BEARER = "Bearer ";
+	
 	@GetMapping("/getEscribano")
 	public ResponseEntity<EscribanoDTO> getEscribano(@RequestParam String cuit) {
 		return escribanoService.obtenerDatosEscribanoPorCuit(cuit);
@@ -27,7 +29,7 @@ public class EscribanoRestController {
 	
 	@GetMapping("/token")
 	public ResponseEntity<String> getToken(){
-		String token = jwtService.getToken();
+		String token = BEARER.concat(jwtService.getToken());
 		return ResponseEntity.ok(token);
 				
 	}
