@@ -40,81 +40,77 @@
                     </div>
                     <table class="col-sm-6 table table-striped table-bordered">
                         <tbody>
-                            <tr>
-                                <td>Id</td>
-                                <td>Id</td>
-                            </tr>
-                            <tr>
+                            <tr th:if="${escribano.nombre != null}">
                                 <td>Nombre</td>
-                                <td>Nombre</td>
+                                <td th:text="${escribano.nombre}">Nombre</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.apellido != null}">
                                 <td>Apellido</td>
-                                <td>Apellido</td>
+                                <td th:text="${escribano.apellido}">Apellido</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.email != null}">
                                 <td>Email</td>
-                                <td>Email</td>
+                                <td th:text="${escribano.email}">Email</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.fechaDestitucion != null}">
                                 <td>Fecha Destitución</td>
-                                <td>FechaDestitucion</td>
+                                <td th:text="${escribano.fechaDestitucion}">FechaDestitucion</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.barrio != null}">
                                 <td>Barrio</td>
-                                <td>Barrio</td>
+                                <td th:text="${escribano.barrio}">Barrio</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.cargo != null}">
                                 <td>Cargo</td>
-                                <td>Cargo</td>
+                                <td th:text="${escribano.cargo}">Cargo</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.celular != null}">
                                 <td>Celular</td>
-                                <td>Celular</td>
+                                <td th:text="${escribano.celular}">Celular</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.dias != null}">
                                 <td>Días</td>
-                                <td>Dias</td>
+                                <td th:text="${escribano.dias}">Dias</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.domicilio != null}">
                                 <td>Domicilio</td>
-                                <td>Domicilio</td>
+                                <td th:text="${escribano.domicilio}">Domicilio</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.estado != null}">
                                 <td>Estado</td>
-                                <td>Estado</td>
+                                <td th:text="${escribano.estado}">Estado</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.horario != null}">
                                 <td>Horario</td>
-                                <td>Horario</td>
+                                <td th:text="${escribano.horario}">Horario</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.imagen != null}">
                                 <td>Imagen</td>
-                                <td>Imagen</td>
+                                <td th:text="${escribano.imagen}">Imagen</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.localidad != null}">
                                 <td>Localidad</td>
-                                <td>Localidad</td>
+                                <td th:text="${escribano.localidad}">Localidad</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.matricula != null}">
                                 <td>Matrícula</td>
-                                <td>Matricula</td>
+                                <td th:text="${escribano.matricula}">Matricula</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.mostrarImagen != null}">
                                 <td>Mostrar Imagen</td>
-                                <td>MostrarImagen</td>
+                                <td th:text="${escribano.mostrarImagen}">MostrarImagen</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.registro != null}">
                                 <td>Registro</td>
-                                <td>Registro</td>
+                                <td th:text="${escribano.registro}">Registro</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.sexo != null}">
                                 <td>Sexo</td>
-                                <td>Sexo</td>
+                                <td th:text="${escribano.sexo}">Sexo</td>
                             </tr>
-                            <tr>
+                            <tr th:if="${escribano.telefono != null}">
                                 <td>Teléfono</td>
-                                <td>Telefono</td>
+                                <td th:text="${escribano.telefono}">Telefono</td>
                             </tr>
                         </tbody>
                     </table>
