@@ -34,6 +34,7 @@ public class EscribanoRestController {
 		return ResponseEntity.ok(token);
 				
 	}
+	
 	@GetMapping("/tokenV2")
 	public ResponseEntity<String> getTokenV2(){
 		String token = BEARER.concat(jwtService.getTokenV2());
