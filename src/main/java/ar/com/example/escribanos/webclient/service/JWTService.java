@@ -22,9 +22,19 @@ public class JWTService {
 	
 	@Autowired
 	private JwtTokenHolder tokenHolder;
+	private long MINUTOS; 
+	
+	public JWTService() {
+		MINUTOS = 2;
+	}
+	
+	public String getTokenV2() {
+		MINUTOS = 10;
+		return getToken();
+	}
 	
 	public String getToken() {
-		String token = JWTUtils.buildToken(issuer, audience, subject, role, key);
+		String token = JWTUtils.buildToken(issuer, audience, subject, role, key, MINUTOS);
 		tokenHolder.setToken(token);
 		
 		return token;
