@@ -26,6 +26,7 @@ public class EscribanoRestController {
 	public ResponseEntity<EscribanoDTO> getEscribano(@RequestParam String cuit) {
 		return escribanoService.obtenerDatosEscribanoPorCuit(cuit);
 	}
+
 	
 	@GetMapping("/token")
 	public ResponseEntity<String> getToken(){
@@ -33,4 +34,11 @@ public class EscribanoRestController {
 		return ResponseEntity.ok(token);
 				
 	}
+	
+	@GetMapping("/tokenV2")
+	public ResponseEntity<String> getTokenV2(){
+		String token = BEARER.concat(jwtService.getTokenV2());
+		return ResponseEntity.ok(token);
+	}
+	
 }

@@ -10,10 +10,10 @@ import io.jsonwebtoken.security.Keys;
 
 public class JWTUtils {
 
-	public static String buildToken(String issuer, String audience, String subject, String role, String secret) {
+	public static String buildToken(String issuer, String audience, String subject, String role, String secret, long tiempo) {
 
         long nowMillis = System.currentTimeMillis();
-        long expMillis = nowMillis + (2 * 60 * 1000); // 2 minutos
+        long expMillis = nowMillis + (tiempo * 60 * 1000); // 2 minutos
 
         Key key = Keys.hmacShaKeyFor(secret.getBytes());
 
